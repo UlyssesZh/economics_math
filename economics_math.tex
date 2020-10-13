@@ -22,6 +22,7 @@
 \section{Free market of one good}
 
 \subsection{Basic concepts and theorems}
+\label{basic}
 
 \begin{definition}[quantity]
 The \textbf{quantity} is a variable $Q\in\left[0,+\infty\right)$.
@@ -41,6 +42,8 @@ Its unit is monetary unit per unit quantity.
 The \textbf{cost} of the good is a function $C:\left[0,+\infty\right)\to\left[0,+\infty\right)$.
 
 The \textbf{benefit} of the good is a function $B:\left[0,+\infty\right)\to\left[0,+\infty\right)$.
+
+They satisfies the axioms in Section \ref{basic}.
 \end{definition}
 
 $C$ maps $Q$ to the total cost $C\left(Q\right)$ (whose unit is monetary unit per unit time) for producers to produce such amount of good within a unit of time.
@@ -502,7 +505,76 @@ is the \textbf{equilibrium of a monopsony market}.
 
 \section{Market of one good with gov intervention}
 
+Gov is something able to operate the market directly.
+
 \subsection{Taxes and subsidies}
+
+\begin{definition}[tax-subsidy]
+\label{tax-subsidy}
+A \textbf{tax-subsidy} is two functions
+$T_C:\left[0,+\infty\right)^2\to\left[0,+\infty\right)$ and
+$T_B:\left[0,+\infty\right)^2\to\left[0,+\infty\right)$
+such that functions $C^@\left(Q\right):=T_C\left(Q,C\left(Q\right)\right)$
+and $B^@\left(Q\right):=T_B\left(Q,B\left(Q\right)\right)$
+satisfies the axioms in Section \ref{basic} as if they were $C$ and $B$.
+\end{definition}
+
+\begin{definition}[tax and subsidy]
+A \textbf{tax} is a tax-subsidy such that for any $Q\ge0$,
+$$C^@\left(Q\right)\ge C\left(Q\right),$$
+$$B^@\left(Q\right)\le B\left(Q\right).$$
+
+A \textbf{subsidy} is a tax-subsidy such that for any $Q\ge0$,
+$$C^@\left(Q\right)\le C\left(Q\right),$$
+$$B^@\left(Q\right)\ge B\left(Q\right).$$
+\end{definition}
+
+The two functions mentioned above maps a pair of $Q$ and cost/benefit to a new cost/benefit.
+
+Note that normally taxes and subsidies are not called by a joint name,
+so here the word ``tax-subsidy'' is an unconventional name.
+What is more, ``tax-subsidy'' is not only a joint name
+because there can be some tax-subsidy that is neither a tax nor a subsidy.
+
+\begin{definition}[specific tax-subsidy]
+\label{specific tax-subsidy}
+A \textbf{specific tax-subsidy} is a tax-subsidy in form of
+$$T_C\left(Q,M\right):=M+p_CQ,$$
+$$T_B\left(Q,M\right):=M+p_BQ,$$
+where $p_C$ is the \textbf{per unit tax-subsidy on producers},
+and $p_B$ is the \textbf{per unit tax-subsidy on consumers}.
+\end{definition}
+
+\begin{theorem}
+A specific tax-subsidy is a tax iff
+$$0<C'\left(0\right)\le C'\left(0\right)+p_C<B'\left(0\right)+p_B\le B'\left(0\right).$$
+
+A specific tax-subsidy is a subsidy iff
+$$0<C'\left(0\right)+p_C\le C'\left(0\right)<B'\left(0\right)\le B'\left(0\right)+p_B.$$
+\end{theorem}
+\begin{proof}
+(TODO) % TODO
+\end{proof}
+
+\begin{definition}[\textit{ad valorem} tax-subsidy]
+\label{ad valorem tax-subsidy}
+A \textbf{\textit{ad valorem} tax-subsidy} is a tax-subsidy in form of
+$$T_C\left(Q,M\right):=k_CM,$$
+$$T_B\left(Q,M\right):=k_BM,$$
+where $k_C$ is the \textbf{ratio of tax-subsidy on producers},
+and $k_B$ is the \textbf{ratio of tax-subsidy on consumers}.
+\end{definition}
+
+\begin{theorem}
+An \textit{ad valorem} tax-subsidy is a tax iff
+$$0<k_B\le1\le k_C.$$
+
+An \textit{ad valorem} tax-subsidy is a subsidy iff
+$$0<k_C\le1\le k_B.$$
+\end{theorem}
+\begin{proof}
+(TODO) % TODO
+\end{proof}
 
 \subsection{Price controls}
 
