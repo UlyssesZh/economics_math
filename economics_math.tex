@@ -53,7 +53,7 @@ Here are some axioms concluded from principles of economics.
 
 \begin{axiom}
 \label{monoticity}
-$C$ and $B$ are increasing on $\left[0,+\infty\right)$.
+$C$ and $B$ are strictly increasing on $\left[0,+\infty\right)$.
 \end{axiom}
 
 Axiom \ref{monoticity} is obvious when thinking about the economic meaning of $C$ and $B$.
@@ -83,8 +83,8 @@ but it is necessary if the market should exist.
 
 \begin{axiom}
 \label{inf}
-$$\lim_{Q\to+\infty}C'\left(Q\right)=+\infty.$$
-$$\lim_{Q\to+\infty}B'\left(Q\right)=0.$$
+$$\lim_{Q\to+\infty}C'\left(Q\right)=+\infty,
+\qquad\lim_{Q\to+\infty}B'\left(Q\right)=0.$$
 \end{axiom}
 
 Axiom \ref{inf} is as necessary as Axiom \ref{initial supply and demand}.
@@ -138,6 +138,9 @@ $$S_B\left(Q,P\right):=B\left(Q\right)-PQ.$$
 
 The \textbf{social surplus} $S:\left[0,+\infty\right)\to\mathbb R$ is defined as
 $$S:=B-C.$$
+
+The \textbf{actual social surplus} $S_S:\left[0,+\infty\right)\to\mathbb R$ is defined as
+$$S_S\left(Q\right):=S_C\left(Q,C'\left(Q\right)\right)+S_B\left(Q,B'\left(Q\right)\right).$$
 \end{definition}
 
 The unit of surplus is monetary unit per unit time.
@@ -147,9 +150,9 @@ For consumers, the net gain is part of benefit $B\left(Q\right)$ that exceeds th
 
 \begin{theorem}
 For any $Q\ge0$,
-$$S_C\left(Q,C'\left(Q\right)\right)\ge0,$$
-$$S_B\left(Q,B'\left(Q\right)\right)\ge0,$$
-where the equality holds only when $Q=0$.
+$$S_C\left(Q,C'\left(Q\right)\right)\ge0,
+\qquad S_B\left(Q,B'\left(Q\right)\right)\ge0,$$
+where the equality holds iff $Q=0$.
 \end{theorem}
 \begin{proof}
 \begin{align*}
@@ -211,8 +214,8 @@ It is the ratio of percentage change in $Q$ and that in $P$.
 \begin{theorem}
 \label{sign of price elasticity}
 For any $Q>0$,
-$$E_{B'}\left(Q\right)<0,$$
-$$E_{C'}\left(Q\right)>0.$$
+$$E_{B'}\left(Q\right)<0,
+\qquad E_{C'}\left(Q\right)>0.$$
 \end{theorem}
 \begin{proof}
 According to Definition \ref{price elasticity},
@@ -399,9 +402,9 @@ From the calculations above, since $R_f'\left(Q_0\right)=0$ and $f\left(Q_0\righ
 \begin{theorem}
 \label{inequality of revenue and supply and demand}
 For any $Q\ge0$,
-$$C'\left(Q\right)\le R_{C'}'\left(Q\right),$$
-$$B'\left(Q\right)\ge R_{B'}'\left(Q\right),$$
-where the equality holds only when $Q=0$.
+$$C'\left(Q\right)\le R_{C'}'\left(Q\right),
+\qquad B'\left(Q\right)\ge R_{B'}'\left(Q\right),$$
+where the equality holds iff $Q=0$.
 \end{theorem}
 \begin{proof}
 Consider $Q>0$, and then we have
@@ -436,6 +439,7 @@ Thus, when $Q>n$, $0<R_{B'}\left(Q\right)<\varepsilon$, which means $\lim_{Q\to+
 \end{proof}
 
 \subsection{Perfect competition}
+\label{perfect competition}
 
 \begin{theorem}
 \label{perfect competition equilibrium}
@@ -462,9 +466,26 @@ Thus, $f^{-1}\left(0\right)$ is the unique solution of equation $f=0$.
 After that, it can be easily proved that $f^{-1}\left(0\right)\in\left(0,+\infty\right)$ is the unique maximal of $S$.
 \end{proof}
 
-According to principles of economics,
-the maximal of $S$ mentioned in Theorem \ref{perfect competition equilibrium}
-is the \textbf{equilibrium of a perfect competition market}.
+\begin{definition}[equilibrium of a perfect competition market]
+\label{def perfect competition equilibrium}
+The \textbf{equilibrium of a perfect competition market} $Q^*$ is defined as the unique maximal of $S$, whose existence is ensured by Theorem \ref{perfect competition equilibrium}.
+\end{definition}
+
+\begin{theorem}
+\label{difference in social and actual social}
+For any $Q\in\left(0,Q^*\right)$, $S_S\left(Q\right)<S\left(Q\right)$.
+For any $Q\in\left(Q^*,+\infty\right)$, $S_S\left(Q\right)>S\left(Q\right)$.
+\end{theorem}
+\begin{proof}
+\begin{align*}
+S_S\left(Q\right)&=S_C\left(Q,C'\left(Q\right)\right)+S_B\left(Q,B'\left(Q\right)\right)\qquad\text{(Definition \ref{surplus})}\\
+&=C'\left(Q\right)Q-C\left(Q\right)+B\left(Q\right)-B'\left(Q\right)Q\qquad\text{(Definition \ref{surplus})}\\
+&=S\left(Q\right)-S'\left(Q\right)Q\qquad\text{(Definition \ref{surplus})}.
+\end{align*}
+According to Theorem \ref{perfect competition equilibrium},
+for $Q<Q^*$, $S'\left(Q\right)>0$, and for $Q>Q^*$, $S'\left(Q\right)<0$.
+In this way, the conclusion can be proved.
+\end{proof}
 
 \subsection{Monopoly and monopsony}
 
@@ -514,19 +535,22 @@ Gov is something able to operate the market directly.
 A \textbf{tax-subsidy} is two functions
 $T_C:\left[0,+\infty\right)^2\to\left[0,+\infty\right)$ and
 $T_B:\left[0,+\infty\right)^2\to\left[0,+\infty\right)$
-such that functions $C^@\left(Q\right):=T_C\left(Q,C\left(Q\right)\right)$
-and $B^@\left(Q\right):=T_B\left(Q,B\left(Q\right)\right)$
+such that functions $C_@\left(Q\right):=T_C\left(Q,C\left(Q\right)\right)$
+and $B_@\left(Q\right):=T_B\left(Q,B\left(Q\right)\right)$
 satisfies the axioms in Section \ref{basic} as if they were $C$ and $B$.
 \end{definition}
 
+In this article, we use $X_@$ to denote the $X$ after applying a tax-subsidy.
+
 \begin{definition}[tax and subsidy]
+\label{tax and subsidy}
 A \textbf{tax} is a tax-subsidy such that for any $Q\ge0$,
-$$C^@\left(Q\right)\ge C\left(Q\right),$$
-$$B^@\left(Q\right)\le B\left(Q\right).$$
+$$C_@'\left(Q\right)\ge C'\left(Q\right),
+\qquad B_@'\left(Q\right)\le B'\left(Q\right).$$
 
 A \textbf{subsidy} is a tax-subsidy such that for any $Q\ge0$,
-$$C^@\left(Q\right)\le C\left(Q\right),$$
-$$B^@\left(Q\right)\ge B\left(Q\right).$$
+$$C_@'\left(Q\right)\le C'\left(Q\right),
+\qquad B_@'\left(Q\right)\ge B'\left(Q\right).$$
 \end{definition}
 
 The two functions mentioned above maps a pair of $Q$ and cost/benefit to a new cost/benefit.
@@ -536,50 +560,72 @@ so here the word ``tax-subsidy'' is an unconventional name.
 What is more, ``tax-subsidy'' is not only a joint name
 because there can be some tax-subsidy that is neither a tax nor a subsidy.
 
-\begin{definition}[specific tax-subsidy]
-\label{specific tax-subsidy}
-A \textbf{specific tax-subsidy} is a tax-subsidy in form of
-$$T_C\left(Q,M\right):=M+p_CQ,$$
-$$T_B\left(Q,M\right):=M+p_BQ,$$
-where $p_C$ is the \textbf{per unit tax-subsidy on producers},
-and $p_B$ is the \textbf{per unit tax-subsidy on consumers}.
-\end{definition}
-
 \begin{theorem}
-A specific tax-subsidy is a tax iff
-$$0<C'\left(0\right)\le C'\left(0\right)+p_C<B'\left(0\right)+p_B\le B'\left(0\right).$$
-
-A specific tax-subsidy is a subsidy iff
-$$0<C'\left(0\right)+p_C\le C'\left(0\right)<B'\left(0\right)\le B'\left(0\right)+p_B.$$
+\label{effect of tax and subsidy}
+$Q_@^*\le Q^*$ if a tax is applied, and $Q_@^*\ge Q^*$ if a subsidy is applied.
 \end{theorem}
 \begin{proof}
-(TODO) % TODO
+Consider the case of applying a tax.
+
+Use means of contradiction.
+Suppose $Q_@^*>Q^*$, and then
+\begin{align*}
+C_@'\left(Q_@^*\right)&>C'\left(Q_@^*\right)\qquad\text{(Definition \ref{tax and subsidy})}\\
+&\ge C'\left(Q^*\right)\qquad\text{(Axiom \ref{monoticity})}\\
+&=B'\left(Q^*\right)\qquad\text{(Theorem \ref{perfect competition equilibrium})}\\\
+&>B'\left(Q_@^*\right)\qquad\text{(Axiom \ref{monoticity})}\\
+&\ge B_@'\left(Q_@^*\right)\qquad\text{(Definition \ref{tax and subsidy})},
+\end{align*}
+which contradicts with $C_@'\left(Q_@^*\right)=B_@'\left(Q_@^*\right)$ from Theorem \ref{perfect competition equilibrium}.
+
+The proof for the case of applying a subsidy is similar.
 \end{proof}
 
-\begin{definition}[\textit{ad valorem} tax-subsidy]
-\label{ad valorem tax-subsidy}
-A \textbf{\textit{ad valorem} tax-subsidy} is a tax-subsidy in form of
-$$T_C\left(Q,M\right):=k_CM,$$
-$$T_B\left(Q,M\right):=k_BM,$$
-where $k_C$ is the \textbf{ratio of tax-subsidy on producers},
-and $k_B$ is the \textbf{ratio of tax-subsidy on consumers}.
-\end{definition}
+Theorem \ref{effect of tax and subsidy} shows how a tax-subsidy can affect a perfect competition market.
 
 \begin{theorem}
-An \textit{ad valorem} tax-subsidy is a tax iff
-$$0<k_B\le1\le k_C.$$
-
-An \textit{ad valorem} tax-subsidy is a subsidy iff
-$$0<k_C\le1\le k_B.$$
+$S_S\left(Q_@^*\right)\le S\left(Q_@^*\right)$ if a tax is applied, and $S_S\left(Q_@^*\right)\ge S\left(Q_@^*\right)$ if a subsidy is applied.
 \end{theorem}
 \begin{proof}
-(TODO) % TODO
+Use Theorem \ref{difference in social and actual social} and Theorem \ref{effect of tax and subsidy}, it can be easily proved.
 \end{proof}
+
+\begin{definition}[tax-subsidy revenue]
+The \textbf{tax-subsidy revenue} is the difference $S\left(Q_@^*\right)-S_S\left(Q_@^*\right)$.
+\end{definition}
+
+As can be seen, the tax-subsidy revenue is positive if a tax is applied, which is called the \textbf{tax revenue}.
+The tax-subsidy revenue is negative if a subsidy is applied, which is called the \textbf{cost of subsidy}.
 
 \subsection{Price controls}
+
+This is so mathematically trivial that I do not want to write anything here.
 
 \section{Free market of multiple goods}
 
 \subsection{Basic concepts}
+
+We need to use multi-variable calculus instead of single-variable calculus.
+We are going to rewrite Section \ref{basic} in a multi-variable form.
+
+\begin{definition}[number of goods]
+The \textbf{number of goods} is $N\in\mathbb Z^+$.
+\end{definition}
+
+\begin{definition}[prices]
+The \textbf{prices} are a vector $\mathbf P\in\left[0,+\infty\right)^N$.
+\end{definition}
+
+\begin{definition}[quantities]
+The \textbf{quantities} are a vector $\mathbf Q\in\left[0,+\infty\right)^N$.
+\end{definition}
+
+\begin{definition}[costs and benefits]
+The \textbf{costs} and \textbf{benefits} are scalar fields $C:\left[0,+\infty\right)^N\to\left[0,+\infty\right)$ and $B:\left[0,+\infty\right)^N\to\left[0,+\infty\right)$.
+\end{definition}
+
+\begin{definition}[supplies and demands]
+The \textbf{supplies} or \textbf{marginal costs} are a vector field $\mathbf C':\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$, and the \textbf{demands} or \textbf{marginal benefits} are a vecotr field $\mathbf B':\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$.
+\end{definition}
 
 \end{document}
