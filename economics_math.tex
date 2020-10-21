@@ -8,10 +8,11 @@
 \title{Calculus in microeconomics}
 \author{Ulysses}
 
-\newtheorem{axiom}{Axiom}
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}
-\newtheorem{definition}{Definition}
+\newtheorem{axiom}{Axiom}[subsection]
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{definition}{Definition}[subsection]
+
+\newcommand{\diag}{\operatorname{\mathbf{diag}}}
 
 \begin{document}
 
@@ -21,7 +22,7 @@
 
 \section{Free market of one good}
 
-\subsection{Basic concepts and theorems}
+\subsection{Basic concepts}
 \label{basic}
 
 \begin{definition}[quantity]
@@ -103,7 +104,9 @@ Note that law of demand is mathematically equivalent to law of diminishing margi
 From these axioms, we can easily deduce some corollaries using simple math.
 
 \begin{theorem}
-The inverse function of $C'$ and $B'$ exists if their codomains are restricted to their ranges.
+\label{inverse supply and demand}
+The inverse functions of $C'$ and $B'$ exist if their codomains are restricted to their ranges.
+In other words, $C'$ and $B'$ are injective.
 \end{theorem}
 \begin{proof}
 According to Axiom \ref{law of supply and demand}, $C'$ is strictly increasing on $\left[0,+\infty\right)$.
@@ -128,6 +131,8 @@ It is similar to explain why marginal benefit is the same as demand.
 
 By convention in the context of supply and demand graphs, the inverse functions $C'^{-1}$ and $B'^{-1}$ are used instead of $C'$ and $B'$.
 
+\subsection{Surplus}
+
 \begin{definition}[surplus]
 \label{surplus}
 The \textbf{producer surplus} $S_C:\left[0,+\infty\right)^2\to\mathbb R$ is defined as
@@ -135,12 +140,27 @@ $$S_C\left(Q,P\right):=PQ-C\left(Q\right).$$
 
 The \textbf{consumer surplus} $S_B:\left[0,+\infty\right)^2\to\mathbb R$ is defined as
 $$S_B\left(Q,P\right):=B\left(Q\right)-PQ.$$
+\end{definition}
 
+\begin{definition}[social surplus]
+\label{social surplus}
 The \textbf{social surplus} $S:\left[0,+\infty\right)\to\mathbb R$ is defined as
 $$S:=B-C.$$
+\end{definition}
 
-The \textbf{actual social surplus} $S_S:\left[0,+\infty\right)\to\mathbb R$ is defined as
-$$S_S\left(Q\right):=S_C\left(Q,C'\left(Q\right)\right)+S_B\left(Q,B'\left(Q\right)\right).$$
+\begin{definition}[formal surplus]
+\label{formal surplus}
+The \textbf{formal producer surplus} $S_{\mathrm SC}:\left[0,+\infty\right)\to\mathbb R$ is defined as
+$$S_{\mathrm SC}\left(Q\right):=S_C\left(Q,C'\left(Q\right)\right).$$
+
+The \textbf{formal consumer surplus} $S_{\mathrm SB}:\left[0,+\infty\right)\to\mathbb R$ is defined as
+$$S_{\mathrm SB}\left(Q\right):=S_B\left(Q,B'\left(Q\right)\right).$$
+\end{definition}
+
+\begin{definition}[actual social surplus]
+\label{actual social surplus}
+The \textbf{actual social surplus} $S_\mathrm S:\left[0,+\infty\right)\to\mathbb R$ is defined as
+$$S_\mathrm S:=S_{\mathrm SC}+S_{\mathrm SB}.$$
 \end{definition}
 
 The unit of surplus is monetary unit per unit time.
@@ -150,40 +170,39 @@ For consumers, the net gain is part of benefit $B\left(Q\right)$ that exceeds th
 
 \begin{theorem}
 For any $Q\ge0$,
-$$S_C\left(Q,C'\left(Q\right)\right)\ge0,
-\qquad S_B\left(Q,B'\left(Q\right)\right)\ge0,$$
+$$S_{\mathrm SC}\left(Q\right)\ge0,
+\qquad S_{\mathrm SB}\left(Q\right)\ge0,$$
 where the equality holds iff $Q=0$.
 \end{theorem}
 \begin{proof}
 \begin{align*}
-S_C\left(Q,C'\left(Q\right)\right)&=C'\left(Q\right)Q-C\left(Q\right)\qquad\text{(Definition \ref{surplus})}\\
+S_{\mathrm SC}\left(Q\right)&=S_C\left(Q,C'\left(Q\right)\right)&&\text{(Definition \ref{formal surplus})}\\
+&=C'\left(Q\right)Q-C\left(Q\right)&&\text{(Definition \ref{surplus})}\\
 &=\int_0^QC'\left(Q\right)\mathrm dx-\int_0^QC'\left(x\right)\mathrm dx\\
 &=\int_0^Q\left(C'\left(Q\right)-C'\left(x\right)\right)\mathrm dx.
 \end{align*}
 According to Axiom \ref{law of supply and demand}, $C'$ is strictly increasing,
 so when $Q>0$, for any $x\in\left[0,Q\right)$, $C'\left(Q\right)-C'\left(x\right)>0$.
-Thus, the integral is an integral of an always-positive function, which means
-$$S_C\left(Q,C'\left(Q\right)\right)>0.$$
+Thus, the integral is an integral of an always-positive function, which means $S_{\mathrm SC}\left(Q\right)>0$.
 
-When $Q=0$, it can be easily proved that $S_C\left(Q,C'\left(Q\right)\right)=0$.
+When $Q=0$, it can be easily proved that $S_{\mathrm SC}\left(Q\right)=0$.
 
-It is similar to show that $$S_B\left(Q,B'\left(Q\right)\right)>0.$$
+It is similar to show that $S_{\mathrm SB}\left(Q\right)\ge0$.
 \end{proof}
 
 \begin{theorem}
-$Q\mapsto S_C\left(Q,C'\left(Q\right)\right)$ is strictly increasing.
-
-$Q\mapsto S_B\left(Q,B'\left(Q\right)\right)$ is strictly increasing.
+$S_{\mathrm SC}$ and $S_{\mathrm SB}$ are strictly increasing.
 \end{theorem}
 \begin{proof}
 \begin{align*}
-\frac{\mathrm d}{\mathrm dQ}S_C\left(Q,C'\left(Q\right)\right)&=\frac{\mathrm d}{\mathrm dQ}\left(C'\left(Q\right)Q-C\left(Q\right)\right)\qquad\text{(Definition \ref{surplus})}\\
+S_{\mathrm SC}'\left(Q\right)&=\frac{\mathrm d}{\mathrm dQ}S_C\left(Q,C'\left(Q\right)\right)&&\text{(Definition \ref{formal surplus})}\\
+&=\frac{\mathrm d}{\mathrm dQ}\left(C'\left(Q\right)Q-C\left(Q\right)\right)&&\text{(Definition \ref{surplus})}\\
 &=C''\left(Q\right)Q\\
-&>0\qquad\text{(Axiom \ref{law of supply and demand})},
+&>0&&\text{(Axiom \ref{law of supply and demand})},
 \end{align*}
-so $Q\mapsto S_C\left(Q,C'\left(Q\right)\right)$ is strictly increasing.
+so $S_{\mathrm SC}$ is strictly increasing.
 
-It is similar to prove that $Q\mapsto S_B\left(Q,B'\left(Q\right)\right)$ is strictly increasing.
+It is similar to prove that $S_{\mathrm SB}$ is strictly increasing.
 \end{proof}
 
 \begin{theorem}
@@ -193,11 +212,13 @@ which is independent of $P$.
 \end{theorem}
 \begin{proof}
 \begin{align*}
-S\left(Q\right)&=B\left(Q\right)-C\left(Q\right)\qquad\text{(Definition \ref{surplus})}\\
+S\left(Q\right)&=B\left(Q\right)-C\left(Q\right)&&\text{(Definition \ref{social surplus})}\\
 &=B\left(Q\right)-PQ+PQ-C\left(Q\right)\\
-&=S_C\left(Q,P\right)+S_B\left(Q,P\right)\qquad\text{(Definition \ref{surplus})}.
+&=S_C\left(Q,P\right)+S_B\left(Q,P\right)&&\text{(Definition \ref{surplus})}.
 \end{align*}
 \end{proof}
+
+\subsection{Price elasticities}
 
 \begin{definition}[price elasticity]
 \label{price elasticity}
@@ -207,22 +228,24 @@ $$E_f\left(Q\right):=\frac{f\left(Q\right)}{f'\left(Q\right)Q}.$$
 \end{definition}
 
 In Definition \ref{price elasticity}, the involved function $f$ is a function mapping $Q$ to $P$, usually $C'$ or $B'$.
-In these two special cases, the price elasticity is called \textbf{price elasticity of supply (PES)} or \textbf{price elasticity of demand (PED)}.
+In these two special cases, the price elasticity is respectively called \textbf{price elasticity of supply (PES)} and \textbf{price elasticity of demand (PED)}.
 The economic meaning of price elasticity is to show the responsiveness (elasticity) of $Q$ to $P$.
 It is the ratio of percentage change in $Q$ and that in $P$.
 
 \begin{theorem}
 \label{sign of price elasticity}
 For any $Q>0$,
-$$E_{B'}\left(Q\right)<0,
-\qquad E_{C'}\left(Q\right)>0.$$
+$$E_{C'}\left(Q\right)>0,
+\qquad E_{B'}\left(Q\right)<0.$$
 \end{theorem}
 \begin{proof}
 According to Definition \ref{price elasticity},
-$$E_{B'}\left(Q\right)=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}.$$
-According to Axiom \ref{monoticity}, $B'\left(Q\right)>0$.
-According to Axiom \ref{law of supply and demand}, $B''\left(Q\right)<0$.
-Thus, $E_{B'}\left(Q\right)<0$.
+$$E_{C'}\left(Q\right)=\frac{C'\left(Q\right)}{C''\left(Q\right)Q}.$$
+According to Axiom \ref{monoticity}, $C'\left(Q\right)>0$.
+According to Axiom \ref{law of supply and demand}, $C''\left(Q\right)>0$.
+Thus, $E_{C'}\left(Q\right)>0$.
+
+Similarly, it can be proved that $E_{B'}\left(Q\right)<0$.
 \end{proof}
 
 \begin{theorem}
@@ -305,7 +328,7 @@ B\left(Q\right)&<\int_0^Q\frac3{\left(1+x\right)^2}\mathrm dx\\
 
 Calculate $E_{B'}\left(Q\right)$, and we have
 \begin{align*}
-E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}\qquad\text{(Definition \ref{price elasticity})}\\
+E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}&&\text{(Definition \ref{price elasticity})}\\
 &=\frac{1+x}x\cdot\frac{2+\sin\ln\left(1+x\right)}{-2\left(2+\sin\ln\left(1+x\right)\right)+\cos\ln\left(1+x\right)}.
 \end{align*}
 When $x=\mathrm e^{2k\pi}-1$,
@@ -324,7 +347,7 @@ Then, $B$ satisfies Axiom \ref{monoticity}, Axiom \ref{smoothness}, Axiom \ref{i
 
 Calculate $E_{B'}\left(Q\right)$, and we have
 \begin{align*}
-E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}\qquad\text{(Definition \ref{price elasticity})}\\
+E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}&&\text{(Definition \ref{price elasticity})}\\
 &=-\frac1Q\\
 &\xrightarrow{Q\to+\infty}0.
 \end{align*}
@@ -337,7 +360,7 @@ Then, $B$ satisfies Axiom \ref{monoticity}, Axiom \ref{smoothness}, Axiom \ref{i
 
 Calculate $E_{B'}\left(Q\right)$, and we have
 \begin{align*}
-E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}\qquad\text{(Definition \ref{price elasticity})}\\
+E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}&&\text{(Definition \ref{price elasticity})}\\
 &=-\frac{\mathrm e+Q}Q\cdot\frac{\ln\left(\mathrm e+Q\right)}{2+\ln\left(\mathrm e+Q\right)}\\
 &\xrightarrow{Q\to+\infty}-1.
 \end{align*}
@@ -351,7 +374,7 @@ Then, $B$ satisfies Axiom \ref{monoticity}, Axiom \ref{smoothness}, Axiom \ref{i
 
 Calculate $E_{B'}\left(Q\right)$, and we have
 \begin{align*}
-E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}\qquad\text{(Definition \ref{price elasticity})}\\
+E_{B'}\left(Q\right)&:=\frac{B'\left(Q\right)}{B''\left(Q\right)Q}&&\text{(Definition \ref{price elasticity})}\\
 &=l\left(1+\frac1Q\right)\\
 &\xrightarrow{Q\to+\infty}l.
 \end{align*}
@@ -373,17 +396,19 @@ $$B\left(Q\right)>B\left(q\right)+C\ln\frac Qq\xrightarrow{Q\to+\infty}+\infty,$
 which contradicts with it that $B$ has upper bound.
 \end{proof}
 
-\begin{definition}[revenue]
-\label{revenue}
-The \textbf{revenue} of a function $f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ is a function $R_f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ defined as
+\subsection{Revenue-expenditure}
+
+\begin{definition}[revenue-expenditure]
+\label{revenue-expenditure}
+The \textbf{revenue-expenditure} of a function $f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ is a function $R_f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ defined as
 $$R_f\left(Q\right):=f\left(Q\right)Q.$$
 \end{definition}
 
-In Definition \ref{revenue}, the involved function $f$ is a function mapping $Q$ to $P$, usually $C'$ or $B'$.
-One may usually find that the surplus can often be represented with difference of revenue and cost/benefit.
+In Definition \ref{revenue-expenditure}, the involved function $f$ is a function mapping $Q$ to $P$, usually $C'$ or $B'$.
+One may usually find that the surplus can often be represented with difference of revenue-expenditure and cost/benefit.
 
 \begin{theorem}
-\label{price elasticity and revenue}
+\label{price elasticity and revenue-expenditure}
 If $f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ is a function with non-zero derivative everywhere on $\left(0,+\infty\right)$, and $Q_0\ne0$ is an extremal of $R_f$ such that $f\left(Q_0\right)\ne0$, then $E_f\left(Q_0\right)=-1$.
 \end{theorem}
 \begin{proof}
@@ -391,16 +416,16 @@ Because $R_f$ is a differentiable function, its extremal is a solution of equati
 Since $Q_0\ne0$, $Q_0$ is{} not the boundary of the domain of $R_f$.
 Thus $R_f'\left(Q_0\right)=0$.
 \begin{align*}
-R_f'\left(Q\right)&=\frac{\mathrm d}{\mathrm dQ}\left(f\left(Q\right)Q\right)\qquad\text{(Definition \ref{revenue})}\\
+R_f'\left(Q\right)&=\frac{\mathrm d}{\mathrm dQ}\left(f\left(Q\right)Q\right)&&\text{(Definition \ref{revenue-expenditure})}\\
 &=f'\left(Q\right)Q+f\left(Q\right)\\
-&=\frac{f\left(Q\right)}{E_f\left(Q\right)}+f\left(Q\right)\qquad\text{(Definition \ref{price elasticity})}\\
+&=\frac{f\left(Q\right)}{E_f\left(Q\right)}+f\left(Q\right)&&\text{(Definition \ref{price elasticity})}\\
 &=\left(1+\frac1{E_f\left(Q\right)}\right)f\left(Q\right).
 \end{align*}
 From the calculations above, since $R_f'\left(Q_0\right)=0$ and $f\left(Q_0\right)\ne0$, we have $E_f\left(Q\right)=-1$.
 \end{proof}
 
 \begin{theorem}
-\label{inequality of revenue and supply and demand}
+\label{inequality of revenue-expenditure and supply and demand}
 For any $Q\ge0$,
 $$C'\left(Q\right)\le R_{C'}'\left(Q\right),
 \qquad B'\left(Q\right)\ge R_{B'}'\left(Q\right),$$
@@ -409,8 +434,8 @@ where the equality holds iff $Q=0$.
 \begin{proof}
 Consider $Q>0$, and then we have
 \begin{align*}
-R_{C'}'\left(Q\right)&=\left(1+\frac1{E_{C'}\left(Q\right)}\right)C'\left(Q\right)\qquad\text{(Theorem \ref{price elasticity and revenue})}\\
-&>C'\left(Q\right)\qquad\text{(Theorem \ref{sign of price elasticity})}.
+R_{C'}'\left(Q\right)&=\left(1+\frac1{E_{C'}\left(Q\right)}\right)C'\left(Q\right)&&\text{(Theorem \ref{price elasticity and revenue-expenditure})}\\
+&>C'\left(Q\right)&&\text{(Theorem \ref{sign of price elasticity})}.
 \end{align*}
 As for $Q=0$, it can be easily proved that $R_{C'}'\left(0\right)=C'\left(0\right)$.
 
@@ -430,9 +455,9 @@ $$B\left(Q\right)-B\left(\frac Q2\right)<\frac\varepsilon2$$
 On the other hand,
 \begin{align*}
 B\left(Q\right)-B\left(\frac Q2\right)&=\int_{\frac Q2}^QB'\left(x\right)\mathrm dx\\
-&>\int_{\frac Q2}^QB'\left(Q\right)\mathrm dx\qquad\text{(Axiom \ref{law of supply and demand})}\\
+&>\int_{\frac Q2}^QB'\left(Q\right)\mathrm dx&&\text{(Axiom \ref{law of supply and demand})}\\
 &=\frac12B'\left(Q\right)Q\\
-&=\frac12R_{B'}\left(Q\right)\qquad\text{(Definition \ref{revenue})}.
+&=\frac12R_{B'}\left(Q\right)&&\text{(Definition \ref{revenue-expenditure})}.
 \end{align*}
 
 Thus, when $Q>n$, $0<R_{B'}\left(Q\right)<\varepsilon$, which means $\lim_{Q\to+\infty}R_{B'}\left(Q\right)=0$.
@@ -473,14 +498,15 @@ The \textbf{equilibrium of a perfect competition market} $Q^*$ is defined as the
 
 \begin{theorem}
 \label{difference in social and actual social}
-For any $Q\in\left(0,Q^*\right)$, $S_S\left(Q\right)<S\left(Q\right)$.
-For any $Q\in\left(Q^*,+\infty\right)$, $S_S\left(Q\right)>S\left(Q\right)$.
+For any $Q\in\left(0,Q^*\right)$, $S_\mathrm S\left(Q\right)<S\left(Q\right)$.
+For any $Q\in\left(Q^*,+\infty\right)$, $S_\mathrm S\left(Q\right)>S\left(Q\right)$.
 \end{theorem}
 \begin{proof}
 \begin{align*}
-S_S\left(Q\right)&=S_C\left(Q,C'\left(Q\right)\right)+S_B\left(Q,B'\left(Q\right)\right)\qquad\text{(Definition \ref{surplus})}\\
-&=C'\left(Q\right)Q-C\left(Q\right)+B\left(Q\right)-B'\left(Q\right)Q\qquad\text{(Definition \ref{surplus})}\\
-&=S\left(Q\right)-S'\left(Q\right)Q\qquad\text{(Definition \ref{surplus})}.
+S_\mathrm S\left(Q\right)&=S_{\mathrm SC}\left(Q\right)+S_{\mathrm SB}\left(Q\right)&&\text{(Definition \ref{actual social surplus})}\\
+&=S_C\left(Q,C'\left(Q\right)\right)+S_B\left(Q,B'\left(Q\right)\right)&&\text{(Definition \ref{formal surplus})}\\
+&=C'\left(Q\right)Q-C\left(Q\right)+B\left(Q\right)-B'\left(Q\right)Q&&\text{(Definition \ref{surplus})}\\
+&=S\left(Q\right)-S'\left(Q\right)Q&&\text{(Definition \ref{social surplus})}.
 \end{align*}
 According to Theorem \ref{perfect competition equilibrium},
 for $Q<Q^*$, $S'\left(Q\right)>0$, and for $Q>Q^*$, $S'\left(Q\right)<0$.
@@ -496,14 +522,14 @@ $Q\mapsto S_C\left(Q,B'\left(Q\right)\right)$ has at least one maximal on $\left
 $Q\mapsto S_B\left(Q,C'\left(Q\right)\right)$ has at least one maximal on $\left(0,+\infty\right)$, which is a solution of equation $R_{C'}'=B'$.
 \end{theorem}
 \begin{proof}
-According to Definition \ref{surplus} and Definition \ref{revenue},
+According to Definition \ref{surplus} and Definition \ref{revenue-expenditure},
 $$f\left(Q\right):=S_C\left(Q,B'\left(Q\right)\right)=R_{B'}\left(Q\right)-C\left(Q\right).$$
 
-According to Axiom \ref{initial supply and demand} and Theorem \ref{inequality of revenue and supply and demand},
+According to Axiom \ref{initial supply and demand} and Theorem \ref{inequality of revenue-expenditure and supply and demand},
 $$f'\left(0\right)=B'\left(0\right)-C'\left(0\right)>0,$$
 so $0$ cannot be a maximal of $f$.
 
-According to Axiom \ref{inf} and Theorem \ref{inequality of revenue and supply and demand},
+According to Axiom \ref{inf} and Theorem \ref{inequality of revenue-expenditure and supply and demand},
 $$\lim_{Q\to+\infty}f'\left(Q\right)<\lim_{Q\to+\infty}\left(B'\left(Q\right)-C'\left(Q\right)\right)=-\infty.$$
 Thus, using definition of limit, it can be easily proved that there exists $Q_0>0$ such that $f'\left(Q_0\right)<0$,
 so $Q_0$ cannot be a maximal of $f$.
@@ -570,11 +596,11 @@ Consider the case of applying a tax.
 Use means of contradiction.
 Suppose $Q_@^*>Q^*$, and then
 \begin{align*}
-C_@'\left(Q_@^*\right)&>C'\left(Q_@^*\right)\qquad\text{(Definition \ref{tax and subsidy})}\\
-&\ge C'\left(Q^*\right)\qquad\text{(Axiom \ref{monoticity})}\\
-&=B'\left(Q^*\right)\qquad\text{(Theorem \ref{perfect competition equilibrium})}\\\
-&>B'\left(Q_@^*\right)\qquad\text{(Axiom \ref{monoticity})}\\
-&\ge B_@'\left(Q_@^*\right)\qquad\text{(Definition \ref{tax and subsidy})},
+C_@'\left(Q_@^*\right)&>C'\left(Q_@^*\right)&&\text{(Definition \ref{tax and subsidy})}\\
+&\ge C'\left(Q^*\right)&&\text{(Axiom \ref{monoticity})}\\
+&=B'\left(Q^*\right)&&\text{(Theorem \ref{perfect competition equilibrium})}\\\
+&>B'\left(Q_@^*\right)&&\text{(Axiom \ref{monoticity})}\\
+&\ge B_@'\left(Q_@^*\right)&&\text{(Definition \ref{tax and subsidy})},
 \end{align*}
 which contradicts with $C_@'\left(Q_@^*\right)=B_@'\left(Q_@^*\right)$ from Theorem \ref{perfect competition equilibrium}.
 
@@ -584,18 +610,18 @@ The proof for the case of applying a subsidy is similar.
 Theorem \ref{effect of tax and subsidy} shows how a tax-subsidy can affect a perfect competition market.
 
 \begin{theorem}
-$S_S\left(Q_@^*\right)\le S\left(Q_@^*\right)$ if a tax is applied, and $S_S\left(Q_@^*\right)\ge S\left(Q_@^*\right)$ if a subsidy is applied.
+$S_\mathrm S\left(Q_@^*\right)\le S\left(Q_@^*\right)$ if a tax is applied, and $S_\mathrm S\left(Q_@^*\right)\ge S\left(Q_@^*\right)$ if a subsidy is applied.
 \end{theorem}
 \begin{proof}
 Use Theorem \ref{difference in social and actual social} and Theorem \ref{effect of tax and subsidy}, it can be easily proved.
 \end{proof}
 
-\begin{definition}[tax-subsidy revenue]
-The \textbf{tax-subsidy revenue} is the difference $S\left(Q_@^*\right)-S_S\left(Q_@^*\right)$.
+\begin{definition}[tax-subsidy revenue-expenditure]
+The \textbf{tax-subsidy revenue-expenditure} is the difference $S\left(Q_@^*\right)-S_\mathrm S\left(Q_@^*\right)$.
 \end{definition}
 
-As can be seen, the tax-subsidy revenue is positive if a tax is applied, which is called the \textbf{tax revenue}.
-The tax-subsidy revenue is negative if a subsidy is applied, which is called the \textbf{cost of subsidy}.
+As can be seen, the tax-subsidy revenue-expenditure is positive if a tax is applied, which is called the \textbf{tax revenue}.
+The tax-subsidy revenue-expenditure is negative if a subsidy is applied, which is called the \textbf{subsidy expenditure}.
 
 \subsection{Price controls}
 
@@ -624,8 +650,174 @@ The \textbf{quantities} are a vector $\mathbf Q\in\left[0,+\infty\right)^N$.
 The \textbf{costs} and \textbf{benefits} are scalar fields $C:\left[0,+\infty\right)^N\to\left[0,+\infty\right)$ and $B:\left[0,+\infty\right)^N\to\left[0,+\infty\right)$.
 \end{definition}
 
+\begin{axiom}
+$C$ and $B$ are twice differentiable on $\left[0,+\infty\right)^N$.
+\end{axiom}
+
 \begin{definition}[supplies and demands]
 The \textbf{supplies} or \textbf{marginal costs} are a vector field $\mathbf C':\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$, and the \textbf{demands} or \textbf{marginal benefits} are a vecotr field $\mathbf B':\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$.
+They are respectively the gradient of $C$ and $B$.
 \end{definition}
+
+If $\mathbf X$ is a function defined on $\mathbb R^N$, then $\mathbf X'$ denotes its Jacobi matrix.
+Specially, if $X$ is a scalar field, $\mathbf X'$ is its gradient, and $\mathbf X''$ is its Hessian matrix.
+
+\begin{axiom}
+\label{multi monoticity}
+For any $\mathbf Q\in\left[0,+\infty\right)^N$,
+$$\mathbf C'\left(\mathbf Q\right)>0,\qquad\mathbf B'\left(\mathbf Q\right)>0.$$
+\end{axiom}
+
+A matrix/vector $\mathbf X>0$ means each component of $\mathbf X$ is positive.
+
+\begin{axiom}[law of supply and law of demand]
+\label{multi law of supply and law of demand}
+For any $\mathbf Q\in\left[0,+\infty\right)^N$,
+$$\mathbf C''\left(\mathbf Q\right)\succ0,\qquad\mathbf B''\left(\mathbf Q\right)\prec0.$$
+\end{axiom}
+
+A real symmetric matrix $\mathbf X\succ0$ means $\mathbf X$ is positive-definite.
+
+\begin{axiom}
+$$\mathbf C'\left(\mathbf0\right)-\mathbf B'\left(\mathbf0\right)<0.$$
+\end{axiom}
+
+\begin{axiom}
+$$C\left(\mathbf0\right)=B\left(\mathbf0\right)=0.$$
+\end{axiom}
+
+\begin{axiom}
+For each component index $j$,
+$$\lim_{Q_j\to+\infty}C'_j\left(\mathbf Q\right)=+\infty,
+\qquad\lim_{Q_j\to+\infty}B'_j\left(\mathbf Q\right)=0.$$
+\end{axiom}
+
+\begin{theorem}
+The inverse functions of $\mathbf C'$ and $\mathbf B'$ exist if their codomains are restricted to their ranges.
+In other words, $\mathbf C'$ and $\mathbf B'$ are injective.
+\end{theorem}
+\begin{proof}
+Because the Jacobi matrix of $\mathbf C'$ is $\mathbf C''$,
+which is a positive-definite matrix for every $\mathbf Q$ according to Axiom \ref{multi law of supply and law of demand},
+it can be deduced that $\mathbf C'$ is a diffeomorphism of $\mathbb R^N$ onto $\mathbb R^N$ \cite{diffeomorphism}.
+Thus, $\mathbf C'$ is injective.
+
+The proof that $\mathbf B'$ is injective is similar.
+\end{proof}
+
+\subsection{Inter-good effects}
+
+\begin{definition}[complements and substitutes]
+Two goods $j$ and $k$ are \textbf{complements} at $\mathbf Q$ if $B''_{j,k}\left(\mathbf Q\right)<0$.
+
+Two goods $j$ and $k$ are \textbf{substitutes} at $\mathbf Q$ if $B''_{j,k}\left(\mathbf Q\right)>0$.
+\end{definition}
+
+\subsection{Surplus}
+
+\begin{definition}[surplus]
+\label{multi surplus}
+The \textbf{producer surplus} $S_C:\left[0,+\infty\right)^{2N}\to\mathbb R$ is defined as
+$$S_C\left(\mathbf Q,\mathbf P\right):=\mathbf P\cdot\mathbf Q-C\left(\mathbf Q\right).$$
+
+The \textbf{consumer surplus} $S_B:\left[0,+\infty\right)^{2N}\to\mathbb R$ is defined as
+$$S_C\left(\mathbf Q,\mathbf P\right):=B\left(\mathbf Q\right)-\mathbf P\cdot\mathbf Q.$$
+\end{definition}
+
+\begin{definition}[social surplus]
+\label{multi social surplus}
+The \textbf{social surplus} $S:\left[0,+\infty\right)^N\to\mathbb R$ is defined as
+$$S:=B-C.$$
+\end{definition}
+
+\begin{definition}[formal surplus]
+\label{multi formal surplus}
+The \textbf{formal producer surplus} $S_{\mathrm SC}:\left[0,+\infty\right)^N\to\mathbb R$ is defined as
+$$S_{\mathrm SC}\left(\mathbf Q\right):=S_C\left(\mathbf Q,\mathbf C'\left(\mathbf Q\right)\right).$$
+The \textbf{formal consumer surplus} $S_{\mathrm SB}:\left[0,+\infty\right)^N\to\mathbb R$ is defined as
+$$S_{\mathrm SB}\left(\mathbf Q\right):=S_B\left(\mathbf Q,\mathbf B'\left(\mathbf Q\right)\right).$$
+\end{definition}
+
+\begin{definition}[actual social surplus]
+\label{multi actual social surplus}
+The \textbf{actual social surlus} $S_\mathrm S:\left[0,+\infty\right)^N\to\mathbb R$ is defined as
+$$S_\mathrm S:=S_{\mathrm SC}+S_{\mathrm SB}.$$
+\end{definition}
+
+\begin{theorem}
+For any $\mathbf Q\in\left[0,+\infty\right)^N$,
+$$S_{\mathrm SC}\left(\mathbf Q\right)\ge0,
+\qquad S_{\mathrm SB}\left(\mathbf Q\right)\ge0,$$
+where the equality holds iff $\mathbf Q=\mathbf0$.
+\end{theorem}
+\begin{proof}
+\begin{align*}
+S_{\mathrm SC}\left(\mathbf Q\right)&=S_C\left(\mathbf Q,\mathbf C'\left(\mathbf Q\right)\right)&&\text{(Definition \ref{multi formal surplus})}\\
+&=\mathbf C'\left(\mathbf Q\right)\cdot\mathbf Q-C\left(\mathbf Q\right)&&\text{(Definition \ref{multi surplus})}\\
+&=\int_\mathbf0^\mathbf Q\mathbf C'\left(\mathbf Q\right)\cdot\mathrm d\mathbf x-\int_\mathbf0^\mathbf Q\mathbf C'\left(\mathbf x\right)\cdot\mathrm d\mathbf x\\
+&=\int_\mathbf0^\mathbf Q\left(\mathbf C'\left(\mathbf Q\right)-\mathbf C'\left(\mathbf x\right)\right)\cdot\mathrm d\mathbf x.
+\end{align*}
+The integrated expression is obviously a conservative field, which means the integral path is arbitrary.
+Choose such a path that any $\mathbf x$ within the path satisfies $\mathbf Q-\mathbf x>0$ and $\mathrm d\mathbf x>0$ (such a path obviously exists).
+Thus, the integral can be written as an integral of an always-positive function, which means $S_{\mathrm SC}\left(\mathbf Q\right)>0$.
+
+When $\mathbf Q=\mathbf0$, it can be easily proved that $S_{\mathrm SC}\left(\mathbf Q\right)=0$.
+
+It is similar to show that $S_{\mathrm SB}\left(\mathbf Q\right)\ge0$.
+\end{proof}
+
+\begin{theorem}
+For any $\mathbf Q\in\left[0,+\infty\right)$,
+$\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)$ and $\mathbf S_{\mathrm SB}'\left(\mathbf Q\right)$ have respectively at least one positive component.
+\end{theorem}
+\begin{proof}
+\begin{align*}
+\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)&=\frac\partial{\partial\mathbf Q}S_C\left(\mathbf Q,\mathbf C'\left(\mathbf Q\right)\right)&&\text{(Definition \ref{multi formal surplus})}\\
+&=\frac\partial{\partial\mathbf Q}\left(\mathbf C'\left(\mathbf Q\right)\cdot\mathbf Q-C\left(\mathbf Q\right)\right)&&\text{(Definition \ref{multi surplus})}\\
+&=\mathbf C''\left(\mathbf Q\right)\mathbf Q.
+\end{align*}
+Use means of contradiction.
+Suppose $\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)\le0$, then
+$$\mathbf Q\cdot\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)\le0.$$
+However,
+$$\mathbf Q\cdot\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)=\mathbf Q^\mathrm T\mathbf C''\left(\mathbf Q\right)\mathbf Q,$$
+which, by Axiom \ref{multi law of supply and law of demand}, is positive, contradicting.
+
+Thus, we can prove that $\mathbf S_{\mathrm SC}'\left(\mathbf Q\right)$ has at least one positive component.
+
+It is similar to prove that $\mathbf S_{\mathrm SB}'\left(\mathbf Q\right)$ has at least one positive component.
+\end{proof}
+
+Not necessarily all components of the vector is positive, because the product of a positive-definite matrix and a positive vector is not necessarily a positive vector.
+
+\begin{theorem}
+For any $\mathbf Q,\mathbf P\in\left[0,+\infty\right)^N$,
+$$S\left(\mathbf Q\right)=S_C\left(\mathbf Q,\mathbf P\right)+S_B\left(\mathbf Q,\mathbf P\right),$$
+which is independent of $\mathbf P$.
+\end{theorem}
+\begin{proof}
+\begin{align*}
+S\left(\mathbf Q\right)&=B\left(\mathbf Q\right)-C\left(\mathbf Q\right)&&\text{(Definition \ref{multi surplus})}\\
+&=B\left(\mathbf Q\right)-\mathbf P\cdot\mathbf Q+\mathbf P\cdot\mathbf Q-C\left(\mathbf Q\right)\\
+&=S_C\left(\mathbf Q,\mathbf P\right)+S_B\left(\mathbf Q,\mathbf P\right)&&\text{(Definition \ref{multi surplus})}.
+\end{align*}
+\end{proof}
+
+\subsection{Price elasticities}
+
+\begin{definition}[price elasticity]
+\label{multi price elasticity}
+The \textbf{price elasticity} of a function $\mathbf f:\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$ whose Jacobi matrix has no zero component everywhere on $\left(0,+\infty\right)^N$ is a function $\mathbf E_\mathbf f:\left(0,+\infty\right)^N\to\mathbb R^{N\times N}$ defined as
+$$E_{\mathbf f,j,k}\left(\mathbf Q\right):=\frac{f_j\left(\mathbf Q\right)}{f'_{j,k}\left(\mathbf Q\right)Q_k}.$$
+\end{definition}
+
+In Definition \ref{multi price elasticity}, the involved function $\mathbf f$ is a function mapping $\mathbf Q$ to $\mathbf P$,
+usually $\mathbf C'$ or $\mathbf B'$.
+In these two special cases, the price elasticity is respectively called \textbf{cross price elasticity of supply (XES)} and \textbf{cross price elasticity of demand (XED)}.
+
+There are few things that can be studies in this section.
+
+\bibliographystyle{unsrt}
+\bibliography{economics_math}
 
 \end{document}
