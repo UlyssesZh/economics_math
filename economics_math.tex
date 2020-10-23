@@ -412,7 +412,7 @@ One may usually find that the surplus can often be represented with difference o
 If $f:\left[0,+\infty\right)\to\left[0,+\infty\right)$ is a function with non-zero derivative everywhere on $\left(0,+\infty\right)$, and $Q_0\ne0$ is an extremal of $R_f$ such that $f\left(Q_0\right)\ne0$, then $E_f\left(Q_0\right)=-1$.
 \end{theorem}
 \begin{proof}
-Because $R_f$ is a differentiable function, its extremal is a solution of equation $R_f'=0$ or the boundary of its domain.
+Because $R_f$ is a differentiable function, its extremal is a solution to equation $R_f'=0$ or the boundary of its domain.
 Since $Q_0\ne0$, $Q_0$ is{} not the boundary of the domain of $R_f$.
 Thus $R_f'\left(Q_0\right)=0$.
 \begin{align*}
@@ -815,7 +815,61 @@ In Definition \ref{multi price elasticity}, the involved function $\mathbf f$ is
 usually $\mathbf C'$ or $\mathbf B'$.
 In these two special cases, the price elasticity is respectively called \textbf{cross price elasticity of supply (XES)} and \textbf{cross price elasticity of demand (XED)}.
 
-There are few things that can be studies in this section.
+\begin{theorem}
+For any $\mathbf Q>0$,
+$$\operatorname{\mathbf{diag}}\mathbf E_{\mathbf C'}\left(\mathbf Q\right)>0,\qquad\operatorname{\mathbf{diag}}\mathbf E_{\mathbf B'}\left(\mathbf Q\right)<0.$$
+\end{theorem}
+\begin{proof}
+According to Definition \ref{multi price elasticity},
+\begin{equation}
+E_{\mathbf C',j,j}\left(\mathbf Q\right)=\frac{C'_j\left(\mathbf Q\right)}{C''_{j,j}\left(\mathbf Q\right)Q_j}.
+\end{equation}
+According to Axiom \ref{multi monoticity}, $C'_j\left(\mathbf Q\right)>0$.
+According to Axiom \ref{multi law of supply and law of demand},
+since the diagonal elements of a positive-definite matrix are all positive,
+$C''_{j,j}\left(\mathbf Q\right)>0$.
+Thus, $E_{C',j,j}\left(\mathbf Q\right)>0$.
+The conclusion is true for any $j$, so $\operatorname{\mathbf{diag}}\mathbf E_{\mathbf C'}\left(\mathbf Q\right)>0$.
+
+Similarly, it can be proved that $\operatorname{\mathbf{diag}}\mathbf E_{\mathbf B'}\left(\mathbf Q\right)<0$
+\end{proof}
+
+\subsection{Revenue-expenditure}
+
+\begin{definition}[revenue-expenditure]
+\label{multi revenue-expenditure}
+The \textbf{revenue-expenditure} of a function $\mathbf f:\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$ is a function $R_\mathbf f:\left[0,+\infty\right)^N\to\left[0,+\infty\right)$ defined as
+$$R_\mathbf f\left(\mathbf Q\right):=\mathbf f\left(\mathbf Q\right)\cdot\mathbf Q.$$
+\end{definition}
+
+\begin{theorem}
+If $\mathbf f:\left[0,+\infty\right)^N\to\left[0,+\infty\right)^N$ is a function whose Jacobi matrix has no zero component anywhere on $\left(0,+\infty\right)^N$, and $\mathbf Q_0$, which has no zero component, is an extremal of $R_\mathbf f$ such that $\mathbf f\left(\mathbf Q_0\right)$ has no zero component, then for any good $j$,
+$$\sum_k\frac1{E_{\mathbf f,j,k}\left(\mathbf Q_0\right)}=-1.$$
+\end{theorem}
+\begin{proof}
+Because $R_\mathbf f$ is a differentiable function, its extremal is a solution to equation $\mathbf R_\mathbf f'=\mathbf0$ or the boundary of its domain.
+Since $\mathbf Q_0\ne\mathbf0$, $\mathbf Q_0$ is not the boundary of the domain of $R_\mathbf f$.
+Thus $\mathbf R_\mathbf f'\left(\mathbf Q_0\right)=\mathbf0$.
+
+\begin{align*}
+\mathbf R_\mathbf f'&=\frac\partial{\partial\mathbf Q}\left(\mathbf f\left(\mathbf Q\right)\cdot\mathbf Q\right)&&\text{(Definition \ref{multi revenue-expenditure})}\\
+&=\mathbf f'\left(\mathbf Q\right)\mathbf Q+\mathbf f\left(\mathbf Q\right),
+\end{align*}
+so we have the equation
+$$\mathbf f'\left(\mathbf Q\right)\mathbf Q+\mathbf f\left(\mathbf Q\right)=\mathbf0.$$
+
+Since the $j$th component of $\mathbf f'\left(\mathbf Q\right)\mathbf Q$ is $\sum_kf'_{j,k}\left(\mathbf Q_0\right)Q_k$, which is $\sum_k\frac{f_j\left(\mathbf Q_0\right)}{E_{\mathbf f,j,k}\left(\mathbf Q_0\right)}$ according to Definition \ref{multi price elasticity},
+for each $j$, we have the equation
+$$\sum_k\frac{f_j\left(\mathbf Q_0\right)}{E_{\mathbf f,j,k}\left(\mathbf Q_0\right)}+f_j\left(\mathbf Q_0\right)=0.$$
+
+Because $\mathbf f\left(\mathbf Q_0\right)$ has no zero component,
+we must have
+$$\sum_k\frac1{E_{\mathbf f,j,k}\left(\mathbf Q_0\right)}=-1.$$
+\end{proof}
+
+\begin{theorem}
+If $B$ has upper bound, then $\lim_{\left|\mathbf Q\right|\to+\infty}R_{\mathbf B'}\left(\mathbf Q\right)=0$.
+\end{theorem}
 
 \bibliographystyle{unsrt}
 \bibliography{economics_math}
