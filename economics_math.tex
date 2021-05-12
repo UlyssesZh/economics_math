@@ -443,6 +443,7 @@ It is similar to prove $B'\left(Q\right)\ge R_{B'}'\left(Q\right)$.
 \end{proof}
 
 \begin{theorem}
+\label{expenditure approaches 0}
 If $B$ has upper bound, then $\lim_{Q\to+\infty}R_{B'}\left(Q\right)=0$.
 \end{theorem}
 \begin{proof}
@@ -603,7 +604,6 @@ C_@'\left(Q_@^*\right)&>C'\left(Q_@^*\right)&&\text{(Definition \ref{tax and sub
 &\ge B_@'\left(Q_@^*\right)&&\text{(Definition \ref{tax and subsidy})},
 \end{align*}
 which contradicts with $C_@'\left(Q_@^*\right)=B_@'\left(Q_@^*\right)$ from Theorem \ref{perfect competition equilibrium}.
-
 The proof for the case of applying a subsidy is similar.
 \end{proof}
 
@@ -868,8 +868,25 @@ $$\sum_k\frac1{E_{\mathbf f,j,k}\left(\mathbf Q_0\right)}=-1.$$
 \end{proof}
 
 \begin{theorem}
-If $B$ has upper bound, then $\lim_{\left|\mathbf Q\right|\to+\infty}R_{\mathbf B'}\left(\mathbf Q\right)=0$.
+If $B$ has upper bound, then $R_{\mathbf B'}\left(\mathbf Q\right)\to0$ as each component of $\mathbf Q$ approaches $+\infty$.
 \end{theorem}
+\begin{proof}
+Write the limit as the composition of $N$ limits, each of which lets one component of $\mathbf Q$ approach $+\infty$,
+and then use Axiom \ref{multi monoticity} and similar tricks in the proof of Theorem \ref{expenditure approaches 0}.
+\end{proof}
+
+\subsection{Perfect competition}
+
+\begin{theorem}
+$S$ has a unique maximal on $\left(0,+\infty\right)^N$,
+which is the unique solution of equation $\mathbf C'=\mathbf B'$.
+\end{theorem}
+\begin{proof}
+The gradient of a scalar field must be zero at its maximal if the maximal is an interior point of the domain.
+At the same time, the sufficient condition for a stationary point to be a maximal is that the field is strictly concave at that point.
+
+Let $\mathbf f:\left[0,+\infty\right)^N\to\mathbb R^N$
+\end{proof}
 
 \bibliographystyle{unsrt}
 \bibliography{economics_math}
