@@ -699,9 +699,28 @@ In other words, $\mathbf C'$ and $\mathbf B'$ are injective.
 \begin{proof}
 Suppose $\mathbf Q_1$ and $\mathbf Q_2$ are two distinct points in $\left[0,+\infty\right)^N$.
 Then, we can depict a line segment connecting the two points by using the function
-\begin{equation*}
-c\!\left(t\right)
-\end{equation*}
+$$\mathbf c\!\left(t\right):=\mathbf Q_1+t\left(\mathbf Q_2-\mathbf Q_1\right).$$
+
+Then, we can write the difference in $\mathbf C'$ at the two different points
+as a line integral
+\begin{align*}
+\mathbf C'\!\left(\mathbf Q_2\right)-\mathbf C'\!\left(\mathbf Q_1\right)&=
+\int_0^1\mathbf C''\!\left(\mathbf c\!\left(t\right)\right)\mathbf c'\!\left(t\right)\mathrm dt\\
+&=\int_0^1\mathbf C''\!\left(\mathbf c\!\left(t\right)\right)\left(\mathbf Q_2-\mathbf Q_1\right)\mathrm dt.
+\end{align*}
+Multiply both sides with $\mathbf Q_2-\mathbf Q_1$, and we can derive
+$$\left(\mathbf Q_2-\mathbf Q_1\right)\cdot
+\left(\mathbf C'\!\left(\mathbf Q_2\right)-\mathbf C'\!\left(\mathbf Q_1\right)\right)=
+\int_0^1\left(\mathbf Q_2-\mathbf Q_1\right)^\mathrm T
+\mathbf C''\!\left(\mathbf c\!\left(t\right)\right)\left(\mathbf Q_2-\mathbf Q_1\right)\mathrm dt.$$
+Because $\mathbf C''\!\left(\mathbf c'\!\left(t\right)\right)$ is positive definite
+for all $t\in\left[0,1\right]$ according to Axiom \ref{multi law of supply and law of demand},
+the right-hand side of the equation is positive.
+Therefore, $\mathbf C'\!\left(\mathbf Q_2\right)-\mathbf C'\!\left(\mathbf Q_1\right)$ cannot be $\mathbf 0$.
+
+Therefore, $\mathbf C'$ is an injection.
+
+Similarly, we can prove that $\mathbf B'$ is an injection.
 \end{proof}
 
 \subsection{Inter-good effects}
